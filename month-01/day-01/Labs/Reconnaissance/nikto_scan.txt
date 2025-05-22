@@ -1,0 +1,19 @@
+- Nikto v2.1.5/2.1.5
++ Target Host: 192.168.52.85
++ Target Port: 80
++ GET /: IP address found in the 'x-mod-pagespeed' header. The IP is "1.9.32.3".
++ GET /: Uncommon header 'x-mod-pagespeed' found, with contents: 1.9.32.3-4523
++ GET /: Uncommon header 'x-frame-options' found, with contents: SAMEORIGIN
++ GET /GaX0TsuP.config~: Retrieved x-powered-by header: PHP/5.5.29
++ GET /GaX0TsuP.config~: Uncommon header 'x-pingback' found, with contents: http://192.168.52.85/xmlrpc.php
++ GET /robots.txt: Server leaks inodes via ETags, header found with file /robots.txt, fields: 0x29 0x52467010ef8ad 
++ GET /robots.txt: "robots.txt" retrieved but it does not contain any 'disallow' entries (which is odd).
++ -3092: GET /admin/: /admin/: This might be interesting...
++ GET /readme: Uncommon header 'tcn' found, with contents: choice
++ -3092: GET /readme: /readme: This might be interesting...
++ GET /image/: Uncommon header 'link' found, with contents: <http://192.168.52.85/?p=23>; rel=shortlink
++ -3092: GET /license.txt: /license.txt: License file found may identify site software.
++ GET /admin/index.html: /admin/index.html: Admin login page/section found.
++ GET /wp-login/: Cookie wordpress_test_cookie created without the httponly flag
++ GET /wp-login/: /wp-login/: Admin login page/section found.
++ GET /wordpress/: /wordpress/: A Wordpress installation was found.

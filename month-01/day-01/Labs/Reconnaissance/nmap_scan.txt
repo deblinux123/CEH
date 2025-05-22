@@ -1,0 +1,12 @@
+# Nmap 7.94SVN scan initiated Thu May 22 16:48:03 2025 as: nmap -sS -sV -T4 -Pn -oN nmap_scan.txt 192.168.52.85
+Nmap scan report for 192.168.52.85
+Host is up (0.00037s latency).
+Not shown: 997 filtered tcp ports (no-response)
+PORT    STATE  SERVICE  VERSION
+22/tcp  closed ssh
+80/tcp  open   http     Apache httpd
+443/tcp open   ssl/http Apache httpd
+MAC Address: 08:00:27:57:85:4A (Oracle VirtualBox virtual NIC)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu May 22 16:48:22 2025 -- 1 IP address (1 host up) scanned in 18.43 seconds
