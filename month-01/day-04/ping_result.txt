@@ -1,0 +1,7 @@
+PING tehranlancer.com (87.236.210.27) 56(84) bytes of data.
+64 bytes from mgcpir27.mandegarweb.com (87.236.210.27): icmp_seq=1 ttl=51 time=83.7 ms
+64 bytes from mgcpir27.mandegarweb.com (87.236.210.27): icmp_seq=2 ttl=51 time=227 ms
+
+--- tehranlancer.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1000ms
+rtt min/avg/max/mdev = 83.720/155.255/226.790/71.535 ms
