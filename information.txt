@@ -1,0 +1,3 @@
+
+# turn of the fire wall on windows machine
+netsh advfirewall set allprofiles state off
