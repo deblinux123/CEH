@@ -1,0 +1,28 @@
+First note!
+Second note
+hellohello
+farid im using TODOO list
+hello again this is the for line
+now i can write full line into the file 
+hello again from linux and working on my TODOO list
+hello the first text
+
+this is the second testing text
+
+and there is the another text
+
+my name is farid kaki
+i love to working with c
+and also i'm learning the ceh 
+`1
+2
+3
+1
+12
+13
+
+t
+f
+34
+45
+56
