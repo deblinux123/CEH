@@ -1,9 +1,8 @@
-#ifndef STUDENT_H_INCLUDED
-#define STUDNET_H_INCLUDED
+#ifndef STUDENT_H
+#define STUDENT_H
 
-
-void getStudnetName(int count);
-void printStudentName(int count);
-void freeStudnetName(int count);
+void getStudentNames(int count);
+void printStudentNames(int count);
+void freeStudentNames(int count);
 
 #endif
