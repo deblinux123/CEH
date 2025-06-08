@@ -1,0 +1,101 @@
+- Nikto v2.1.5/2.1.5
++ Target Host: 192.168.52.151
++ Target Port: 80
++ GET /: Server leaks inodes via ETags, header found with file /, fields: 0xb1 0x55e1c7758dcdb 
++ GET /: The anti-clickjacking X-Frame-Options header is not present.
++ OPTIONS /: Allowed HTTP Methods: GET, HEAD, POST, OPTIONS 
++ GET /secret/: Uncommon header 'link' found, with contents: <http://vtcsec/secret/index.php/wp-json/>; rel="https://api.w.org/"
++ -3092: GET /secret/: /secret/: This might be interesting...
++ -3233: GET /icons/README: /icons/README: Apache default file found.
+
+
+
+---
+
+## 📝 خلاصه اطلاعات مهم:
+
+```
+Target Host: 192.168.52.151
+Target Port: 80
+```
+
+---
+
+## 🔍 تحلیل یافته‌ها
+
+### ✅ 1. 🔓 **Server leaks inodes via ETags**
+
+```
+GET /: Server leaks inodes via ETags, header found with file /
+```
+
+🔍 این یعنی سرور با استفاده از ETag، اطلاعاتی مثل inode و timestamp فایل‌ها رو لو می‌ده.
+🛡 اهمیت امنیتی: **متوسط**
+🧠 قابل استفاده برای fingerprinting یا کشف تغییرات در فایل‌ها توسط attacker
+
+---
+
+### ❌ 2. 📐 **No X-Frame-Options Header**
+
+```
+GET /: The anti-clickjacking X-Frame-Options header is not present.
+```
+
+🔍 این یعنی سرور محافظتی در برابر **Clickjacking** نداره.
+🛡 اهمیت امنیتی: **پایین تا متوسط**
+🧠 قابل استفاده در سناریوهای مهندسی اجتماعی یا iframe injection
+
+---
+
+### 🔍 3. 🔧 **Allowed HTTP Methods: GET, HEAD, POST, OPTIONS**
+
+```
+OPTIONS /: Allowed HTTP Methods: GET, HEAD, POST, OPTIONS 
+```
+
+🔍 بررسی روش‌های قابل استفاده در سرور
+🧠 اگر `PUT` یا `DELETE` هم باز بود، می‌شد به صورت خطرناک آپلود یا حذف فایل کرد.
+🛡 اهمیت امنیتی: در حال حاضر **خطرناک نیست**
+
+---
+
+### 🚨 4. 🕵️‍♂️ **مسیر پنهان: `/secret/`**
+
+```
+GET /secret/: Uncommon header 'link' found, with contents: <http://vtcsec/secret/index.php/wp-json/>
+GET /secret/: This might be interesting...
+```
+
+✅ این خیلی مهمه! مسیر `/secret/` پیدا شده و داخل اون ظاهراً یک وردپرس نصب شده (`wp-json` در لینک مشخصه).
+🔐 احتمال وجود admin panel یا credential leakage وجود داره.
+🎯 این مسیر حتماً باید در مرورگر بازبینی بشه:
+
+```http
+http://192.168.52.151/secret/
+```
+
+---
+
+### ⚠️ 5. 🧱 **Apache default file found: /icons/README**
+
+```
+GET /icons/README: Apache default file found.
+```
+
+🔍 فایل پیش‌فرض Apache هست، اطلاعات خاصی نداره
+🛡 اهمیت امنیتی: پایین
+
+---
+
+## ✅ جمع‌بندی مرحله Recon (Nikto)
+
+| آیتم         | اهمیت    | اقدام پیشنهادی                    |
+| ------------ | -------- | --------------------------------- |
+| `/secret/`   | 🔥 زیاد  | بازبینی دستی – احتمال وردپرس      |
+| wp-json API  | متوسط    | بررسی APIها برای User enumeration |
+| ETag leak    | کم       | قابل چشم‌پوشی در این مرحله        |
+| Clickjacking | متوسط    | صرفاً برای گزارش                  |
+| Methods      | بررسی شد | PUT/DELETE باز نیست               |
+
+---
+

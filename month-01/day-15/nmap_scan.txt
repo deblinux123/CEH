@@ -1,0 +1,139 @@
+# Nmap 7.94SVN scan initiated Sun Jun  8 15:03:26 2025 as: nmap -sS -sV -A -oN nmap_scan.txt 192.168.52.151
+Nmap scan report for 192.168.52.151
+Host is up (0.00030s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     ProFTPD 1.3.3c
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 d6:01:90:39:2d:8f:46:fb:03:86:73:b3:3c:54:7e:54 (RSA)
+|   256 f1:f3:c0:dd:ba:a4:85:f7:13:9a:da:3a:bb:4d:93:04 (ECDSA)
+|_  256 12:e2:98:d2:a3:e7:36:4f:be:6b:ce:36:6b:7e:0d:9e (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+MAC Address: 08:00:27:65:32:D1 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.29 ms 192.168.52.151
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Jun  8 15:03:33 2025 -- 1 IP address (1 host up) scanned in 8.03 seconds
+
+
+---
+
+## 📄 خلاصه اسکن:
+
+* ✅ IP هدف: `192.168.52.151`
+* ✅ 3 پورت باز کشف شد: `21`, `22`, `80`
+* ✅ سیستم‌عامل: Linux (احتمالاً Ubuntu)
+* ✅ اسکن با فلگ‌های `-sS -sV -A`: شامل TCP SYN، کشف نسخه، تشخیص سیستم‌عامل و traceroute
+
+---
+
+## 🔢 پورت‌ها و سرویس‌ها
+
+---
+
+### 🔹 `21/tcp open ftp ProFTPD 1.3.3c`
+
+✅ FTP سرور اجرا می‌شود با نرم‌افزار **ProFTPD نسخه 1.3.3c**
+
+🔍 این نسخه **آسیب‌پذیر** است به:
+
+* [ProFTPD 1.3.3c Backdoor (exploit/unix/ftp/proftpd\_133c\_backdoor)](https://www.exploit-db.com/exploits/15745)
+* امکان اجرای دستور مستقیم با اتصال به پورت FTP و ارسال `HELP ACIDBITCHEZ`
+
+📌 باید تست کنی که آیا امکان login هست یا نه:
+
+```bash
+ftp 192.168.52.151
+# یا با anonymous:
+ftp> anonymous
+```
+
+---
+
+### 🔹 `22/tcp open ssh OpenSSH 7.2p2 Ubuntu`
+
+✅ سرور SSH فعال است و از نسخه‌ای نسبتاً قدیمی استفاده می‌کند (7.2p2)
+
+🔍 فعلاً آسیب‌پذیری جدی برای این نسخه وجود ندارد مگر اینکه:
+
+* نام کاربری/پسورد ضعیف پیدا شود
+* یا از طریق NFS یا اطلاعات دیگر لیست کاربران را داشته باشیم
+
+---
+
+### 🔹 `80/tcp open http Apache/2.4.18 (Ubuntu)`
+
+✅ وب‌سرور Apache اجرا می‌شود
+
+🔍 اطلاعات اولیه:
+
+* تیتر صفحه خالی است → احتمالاً صفحه پیش‌فرض یا بدون عنوان HTML
+* نسخه Apache شناخته شده و قابل بررسی در exploit-db و Metasploit
+
+🧪 باید با ابزارهایی مثل `dirb`, `nikto`, `whatweb` این سرویس رو بیشتر بررسی کنی.
+
+---
+
+## 🌐 شناسایی سیستم‌عامل
+
+```bash
+OS details: Linux 3.2 - 4.9
+```
+
+این یعنی احتمال زیاد ماشین هدف یک نسخه قدیمی از Ubuntu یا Debian هست.
+
+---
+
+## 🌐 TRACEROUTE
+
+```
+HOP 1 → 0.29 ms → 192.168.52.151
+```
+
+یعنی ماشین فقط یک hop باهات فاصله داره → مستقیم وصل هستی بهش، که طبیعیه تو محیط VirtualBox (host-only)
+
+---
+
+## 🎯 پیشنهاد مرحله بعد:
+
+### تست سرویس‌ها:
+
+1. **FTP - ProFTPD**
+   ⮕ تست login
+   ⮕ بررسی آسیب‌پذیری backdoor نسخه 1.3.3c
+
+2. **HTTP - Apache 2.4.18**
+   ⮕ اسکن با `dirb`, `whatweb`, `nikto`
+   ⮕ بررسی مسیرهای پنهان، CMS، فرم‌های login
+
+3. **SSH**
+   ⮕ صرفاً برای مرحله بعدی نگهش دار، یا اگر username پیدا شد تست login با `hydra`
+
+---
+
+```bash
+# مسیرها و فایل‌های پنهان
+dirb http://192.168.52.151
+
+# تکنولوژی سمت سرور
+whatweb http://192.168.52.151
+
+# آسیب‌پذیری‌های سرور وب
+nikto -h http://192.168.52.151
+```
+
+---
+
+
