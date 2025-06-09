@@ -1,0 +1,5 @@
+Open ports for 192.168.52.151 (192.168.52.151)
+---------------------------
+Port 21 is OPEN
+Port 22 is OPEN
+Port 80 is OPEN
