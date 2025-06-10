@@ -1,0 +1,22 @@
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-06-10 12:45 +0330
+Nmap scan report for 192.168.52.151
+Host is up (0.00022s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     ProFTPD 1.3.3c
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+MAC Address: 08:00:27:65:32:D1 (Oracle VirtualBox virtual NIC)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.52 seconds
+
+
+
+پورت 21 (FTP) باز است و سرویس ProFTPD نسخه 1.3.3c اجرا می‌شود.
+
+پورت 22 (SSH) باز است و سرویس OpenSSH نسخه 7.2p2 روی اوبونتو اجرا می‌شود.
+
+پورت 80 (HTTP) باز است و Apache نسخه 2.4.18 روی اوبونتو اجرا می‌شود.
+
