@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /secret/wp-includes/rest-api/endpoints</title>
+ </head>
+ <body>
+<h1>Index of /secret/wp-includes/rest-api/endpoints</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=D">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/secret/wp-includes/rest-api/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-attachments-controller.php">class-wp-rest-attachments-controller.php</a></td><td align="right">2017-10-04 04:27  </td><td align="right"> 23K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-comments-controller.php">class-wp-rest-comments-controller.php</a></td><td align="right">2017-10-04 11:38  </td><td align="right"> 52K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-controller.php">class-wp-rest-controller.php</a></td><td align="right">2017-10-24 17:05  </td><td align="right"> 18K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-post-statuses-controller.php">class-wp-rest-post-statuses-controller.php</a></td><td align="right">2017-10-04 10:52  </td><td align="right">8.9K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-post-types-controller.php">class-wp-rest-post-types-controller.php</a></td><td align="right">2017-10-04 10:52  </td><td align="right">8.7K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-posts-controller.php">class-wp-rest-posts-controller.php</a></td><td align="right">2017-10-23 18:11  </td><td align="right"> 72K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-revisions-controller.php">class-wp-rest-revisions-controller.php</a></td><td align="right">2017-10-04 10:52  </td><td align="right"> 17K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-settings-controller.php">class-wp-rest-settings-controller.php</a></td><td align="right">2017-10-24 17:05  </td><td align="right">9.9K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-taxonomies-controller.php">class-wp-rest-taxonomies-controller.php</a></td><td align="right">2017-10-04 10:52  </td><td align="right">9.7K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-terms-controller.php">class-wp-rest-terms-controller.php</a></td><td align="right">2017-10-04 20:37  </td><td align="right"> 30K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="class-wp-rest-users-controller.php">class-wp-rest-users-controller.php</a></td><td align="right">2017-10-04 20:37  </td><td align="right"> 43K</td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.18 (Ubuntu) Server at 192.168.52.151 Port 80</address>
+</body></html>
