@@ -1,0 +1,74 @@
+گزارش تست نفوذ - مرحله Footprinting و Reconnaissance
+هدف: تحلیل و جمع‌آوری اطلاعات از هدف Mr. Robot (IP: 192.168.52.85)
+
+1. نتایج اسکن Nmap
+less
+Copy
+Edit
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-06-14 15:58 +0330
+Nmap scan report for 192.168.52.85
+Host is up (0.00038s latency).
+Not shown: 997 filtered tcp ports (no-response)
+PORT    STATE  SERVICE  VERSION
+22/tcp  closed ssh
+80/tcp  open   http     Apache httpd
+|_http-server-header: Apache
+|_http-title: Site doesn't have a title (text/html).
+443/tcp open   ssl/http Apache httpd
+| ssl-cert: Subject: commonName=www.example.com
+| Not valid before: 2015-09-16T10:45:03
+|_Not valid after:  2025-09-13T10:45:03
+|_http-title: Site doesn't have a title (text/html).
+|_http-server-header: Apache
+MAC Address: 08:00:27:57:85:4A (Oracle VirtualBox virtual NIC)
+Aggressive OS guesses: Linux 3.10 - 4.11 (98%)
+Network Distance: 1 hop
+توضیح:
+
+پورت 80 (HTTP) و 443 (HTTPS) باز هستند و سرویس Apache httpd روی آنها اجرا می‌شود.
+
+پورت 22 (SSH) بسته است.
+
+سیستم عامل هدف با احتمال بالا نسخه‌ای از Linux کرنل 3 تا 4 می‌باشد.
+
+سرور در ماشین مجازی Oracle VirtualBox اجرا می‌شود.
+
+2. بررسی فایل robots.txt
+آدرس: http://192.168.52.85/robots.txt
+
+محتوا:
+
+makefile
+Copy
+Edit
+User-agent: *
+fsocity.dic
+key-1-of-3.txt
+توضیح:
+
+فایل robots.txt دسترسی ربات‌ها به دو فایل fsocity.dic و key-1-of-3.txt را محدود کرده است.
+
+این فایل‌ها معمولاً شامل دیکشنری پسورد و کلیدهای موردنیاز در چالش Mr. Robot هستند.
+
+3. دریافت فایل‌ها
+دریافت کلید اول:
+
+bash
+Copy
+Edit
+curl http://192.168.52.85/key-1-of-3.txt
+دریافت دیکشنری پسورد:
+
+bash
+Copy
+Edit
+wget http://192.168.52.85/fsocity.dic
+4. تحلیل اولیه فایل‌ها
+key-1-of-3.txt: کلید شماره 1 از 3 کلید نهایی چالش است که باید ذخیره و بررسی شود.
+
+fsocity.dic: فایل دیکشنری شامل پسوردهایی است که احتمالاً برای حمله Brute-force به صفحه ورود وردپرس استفاده خواهد شد.
+
+5. گام‌های بعدی پیشنهادی
+استفاده از fsocity.dic برای حمله Brute-force به صفحه ورود wp-login.php با ابزارهایی مثل hydra یا wpscan.
+
+جمع‌آوری اطلاعات بیشتر از طریق ابزارهای OSINT و اسکن دقیق‌تر.
